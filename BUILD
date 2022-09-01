@@ -43,22 +43,3 @@ config_setting(
     constraint_values = ["@bazel_tools//platforms:windows"],
 )
 
-# Buildifier
-
-sh_binary(
-    name = "buildifier",
-    srcs = select(
-        {
-            ":linux": ["@buildifier_linux//file"],
-            ":macos": ["@buildifier_macos//file"],
-            ":windows": ["@buildifier_windows//file"],
-        },
-    ),
-)
-
-# Aspect-based clang-format
-
-filegroup(
-    name = "dot_clang_format",
-    srcs = [".clang-format"],
-)
