@@ -20,13 +20,6 @@ http_archive(
 
 #http_archive(
 #    name = "phtree",
-#    sha256 = "435e504f4a3587089f20f01962843ff4d7a94e0b30663067106109747f60cddc",
-#    strip_prefix = "phtree-cpp-1.2.0",
-#    url = "https://github.com/tzaeschke/phtree-cpp/archive/refs/tags/v1.2.0.tar.gz",
-#)
-
-#http_archive(
-#    name = "phtree",
 #    strip_prefix = "phtree-cpp-1.3.0",
 #    url = "https://github.com/tzaeschke/phtree-cpp/tree/fix/75-enable-cmake-import-of-phtree",
 #)
@@ -34,12 +27,11 @@ http_archive(
 git_repository(
     name = "phtree",
     branch = "master",
-    #branch = "fix/75-enable-cmake-import-of-phtree",
 #    commit = "8822dbd367eee7e3904d824b780b99009a4a9915",
     remote = "https://github.com/tzaeschke/phtree-cpp",
 )
 
 #local_repository(
 #    name = "phtree",
-#    path = "/home/Franky/work/phtree-cpp-3",
+#    path = "/home/xxxx/phtree-cpp",
 #)
