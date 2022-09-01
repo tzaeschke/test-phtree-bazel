@@ -1,0 +1,38 @@
+name: Bazel build
+
+on:
+  push:
+  schedule:
+    # Check once a week, e.g. every Monday
+    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
+    - cron:  '11 11 * * 1'
+
+jobs:
+  build:
+    name: Run bazel
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup bazel
+        uses: bazelbuild/setup-bazelisk@v2
+
+      - name: Mount bazel cache  # Optional
+        uses: actions/cache@v3
+        with:
+          path: "~/.cache/bazel"
+          key: bazel
+
+      - name: Build
+        shell: bash
+        run: bazel build ...
+
+      - name: Test
+        shell: bash
+        run: bazel test ...
