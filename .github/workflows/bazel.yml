@@ -2,6 +2,7 @@ name: Bazel build
 
 on:
   push:
+  workflow_dispatch:
   schedule:
     - cron: "0 4 * * *"
 
